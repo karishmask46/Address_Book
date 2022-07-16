@@ -55,9 +55,9 @@ namespace AddressBook
             {
                 Contactlist = new Dictionary<string, string>();
                 AddressBook.TryGetValue(ContactName, out Contactlist);
-                Console.WriteLine("First Name: " + Contactlist["first Name"]);
+                Console.WriteLine("First Name: " + Contactlist["First Name"]);
 
-                Console.WriteLine("Last Name:" + Contactlist["last Name"]);
+                Console.WriteLine("Last Name:" + Contactlist["Last Name"]);
 
 
             }
@@ -114,6 +114,19 @@ namespace AddressBook
             else
                 Console.WriteLine("contact doesn't exist");
 
+        }
+        public void DeleteContact()
+        {
+            //Delete contact
+            Console.WriteLine("Enter contact name:");
+            String ContactName = Console.ReadLine();
+            if (AddressBook.ContainsKey(ContactName))
+            {
+                AddressBook.Remove(ContactName);
+                Console.WriteLine("contact removed");
+            }
+            else
+                Console.WriteLine("contact doesn't exist");
         }
     }
 }

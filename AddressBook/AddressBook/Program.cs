@@ -11,7 +11,7 @@
             {
                 Console.WriteLine("Welcome to Address Book Program");
                 Console.WriteLine("1. add contact   2. edit contact");
-                Console.WriteLine("3. view contact");
+                Console.WriteLine("3. view contact 4. Delete contact");
                 try
                 {
                     switch (Convert.ToInt32(Console.ReadLine()))
@@ -24,6 +24,9 @@
                             break;
                         case 3:
                             addressBook.ViewContact();
+                            break;
+                        case 4:
+                            addressBook.DeleteContact();
                             break;
                     }
                 }
