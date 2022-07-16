@@ -12,6 +12,8 @@ namespace AddressBook
         //Generated dictionary for storing
         Dictionary<string, string> Contactlist;
         Dictionary<string, Dictionary<string, string>> AddressBook = new Dictionary<string, Dictionary<string, string>>();
+        Dictionary<String, Dictionary<String, Dictionary<String, String>>> AddressBookCollection = new Dictionary<string, Dictionary<String, Dictionary<String, String>>>();
+        String CurrentAddressBookName = "default";
         public void AddContact()
         {
             //Adding contact to the list
@@ -137,5 +139,32 @@ namespace AddressBook
             else
                 Console.WriteLine("contact doesn't exist");
         }
+        public void CreateAddressBook()
+        {
+            AddressBook = new Dictionary<string, Dictionary<String, String>>();
+            Console.WriteLine("Enter address book name:");
+            string AddressBookName = Console.ReadLine();
+            if (AddressBookCollection.ContainsKey(AddressBookName))
+                Console.WriteLine("Address book already exist");
+            else
+            {
+                AddressBookCollection.Add(AddressBookName, AddressBook);
+                CurrentAddressBookName = AddressBookName;
+                Console.WriteLine("Address book created");
+            }
+        }
+        public void ChangeAddressBook()
+        {
+            Console.WriteLine("Enter address book name:");
+            String AddressBookName = Console.ReadLine();
+            if (AddressBookCollection.ContainsKey(AddressBookName))
+            {
+                CurrentAddressBookName = AddressBookName;
+                Console.WriteLine("address book changed");
+            }
+            else
+                Console.WriteLine("address book doesn't exist");
+        }
     }
 }
+  
