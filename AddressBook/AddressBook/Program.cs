@@ -4,9 +4,35 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To Address Book Problems");
-            AddressBook addressBook = new AddressBook();
-            addressBook.AddContact();
+
+            AddressBookSystem addressBook = new AddressBookSystem();
+
+            while (true)
+            {
+                Console.WriteLine("Welcome to Address Book Program");
+                Console.WriteLine("1. add contact   2. edit contact");
+                Console.WriteLine("3. view contact");
+                try
+                {
+                    switch (Convert.ToInt32(Console.ReadLine()))
+                    {
+                        case 1:
+                            addressBook.AddContact();
+                            break;
+                        case 2:
+                            addressBook.EditContact();
+                            break;
+                        case 3:
+                            addressBook.ViewContact();
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("wrong input");
+                }
+            }
         }
     }
+
 }
